@@ -12,7 +12,7 @@ export interface RadioStation {
 export const radioStations: RadioStation[] = [
   {
     id: '1',
-    name: 'Untelevised Radio',
+    name: 'Resistance Radio',
     frequency: '314.7',
     genre: 'Resistance • Truth • Liberation',
     color: '#0ed729', // phosphor green

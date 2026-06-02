@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Share_Tech_Mono, Black_Ops_One, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
 // Display font - military/propaganda stencil aesthetic
 const blackOpsOne = Black_Ops_One({
@@ -24,11 +25,11 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Untelevised Radio — Resistance Through Sound",
+  title: "Resistance Radio — Resistance Through Sound",
   description: "Independent community radio broadcasting truth, resistance, and liberation. Amplifying voices silenced by oppressive systems.",
-  keywords: ["independent radio", "community radio", "resistance", "activism", "underground radio"],
+  keywords: ["resistance radio", "independent radio", "community radio", "resistance", "activism", "underground radio"],
   openGraph: {
-    title: "Untelevised Radio — Resistance Through Sound",
+    title: "Resistance Radio — Resistance Through Sound",
     description: "Independent community radio broadcasting truth, resistance, and liberation.",
     type: "website",
   },
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body
         className={`${blackOpsOne.variable} ${shareTechMono.variable} ${jetBrainsMono.variable} antialiased crt-screen`}
       >
+        <Header />
         {children}
       </body>
     </html>

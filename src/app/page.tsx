@@ -47,7 +47,7 @@ export default function Home() {
         </div>
 
         {/* Signal Readout */}
-        <div className="fixed top-20 right-8 z-50 text-right">
+        <div className="fixed top-20 right-8 z-40 text-right">
           <div className="signal-readout">SIGNAL: 314.7 MHz</div>
           <div className="signal-readout opacity-80">UPTIME: 04:17:33</div>
           <div className="signal-readout opacity-60">ENCRYPT: AES-256</div>
@@ -66,7 +66,7 @@ export default function Home() {
               </div>
 
               <h1 className="text-7xl md:text-9xl display-text phosphor-glow leading-none mb-4 jitter-anim">
-                UNTELEVISED
+                RESISTANCE
               </h1>
 
               <div className="flex items-center justify-center gap-4 mb-6">
@@ -146,7 +146,7 @@ export default function Home() {
                           <div className="w-2 h-8 bg-alert"></div>
                         </div>
                       ) : (
-                        <div className="w-0 h-0 border-l-[16px] border-l-phosphor border-y-[12px] border-y-transparent ml-1"></div>
+                        <div className="w-0 h-0 border-l-16 border-l-phosphor border-y-12 border-y-transparent ml-1"></div>
                       )}
                     </div>
                     <p className={`
@@ -201,7 +201,7 @@ export default function Home() {
                       NOW BROADCASTING
                     </p>
                     <p className="mono-text text-muted text-xs">
-                      FREQUENCY: 314.7 MHz • UNTELEVISED RADIO
+                      FREQUENCY: 314.7 MHz • RESISTANCE RADIO
                     </p>
                   </div>
                 )}
@@ -284,7 +284,7 @@ export default function Home() {
 
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 bg-phosphor rounded-full animate-pulse"></div>
-                <span className="display-text text-lg phosphor-glow">UNTELEVISED</span>
+                <span className="display-text text-lg phosphor-glow">RESISTANCE RADIO</span>
                 <span className="mono-text text-muted text-xs">
                   <span className="text-cyan">{'//'}</span> {new Date().getFullYear()}
                 </span>
