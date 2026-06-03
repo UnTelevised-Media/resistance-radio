@@ -67,12 +67,22 @@ const SecureAudioPlayer = forwardRef<SecureAudioPlayerHandle, SecureAudioPlayerP
         analyserRef.current = analyser;
         sourceRef.current = source;
 
-        // Animation loop for frequency data
+        // Animation loop — smoothed at ~30fps to avoid thrashing React state
         const dataArray = new Uint8Array(analyser.frequencyBinCount);
+        const smoothed = new Float32Array(analyser.frequencyBinCount);
+        const out = new Uint8Array(analyser.frequencyBinCount);
+        let frameCount = 0;
         const updateAudioData = () => {
           if (analyserRef.current) {
             analyserRef.current.getByteFrequencyData(dataArray);
-            onAudioData(dataArray);
+            // Exponential moving average for smooth rise/fall
+            for (let i = 0; i < dataArray.length; i++) {
+              smoothed[i] = smoothed[i] * 0.65 + dataArray[i] * 0.35;
+              out[i] = smoothed[i];
+            }
+            // Only push to React state every other frame (~30fps)
+            if (frameCount % 2 === 0) onAudioData(out);
+            frameCount++;
           }
           animationFrameRef.current = requestAnimationFrame(updateAudioData);
         };
@@ -91,7 +101,6 @@ const SecureAudioPlayer = forwardRef<SecureAudioPlayerHandle, SecureAudioPlayerP
           audioContextRef.current.close();
         }
       };
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [onAudioData]);
 
     // Handle play/pause based on isPoweredOn

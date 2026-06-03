@@ -4,7 +4,10 @@
       "Bash(Get-ChildItem \"r:\\\\UnTelevised Productions\\\\resistance-radio\" -Depth 2)",
       "Bash(Select-Object FullName, Length)",
       "Bash(gh api *)",
-      "Bash(curl -s \"https://raw.githubusercontent.com/UnTelevised-Media/untelevised-media-new/b5a287b2f2a10b98c72f26a25b35ea86ac46fbbd/src/components/global/Header.tsx\")"
+      "Bash(curl -s \"https://raw.githubusercontent.com/UnTelevised-Media/untelevised-media-new/b5a287b2f2a10b98c72f26a25b35ea86ac46fbbd/src/components/global/Header.tsx\")",
+      "Bash(curl -s \"https://dj.untelevised.live/api/nowplaying/resistance_radio\")",
+      "Bash(python -m json.tool)",
+      "Bash(git rm *)"
     ]
   }
 }
